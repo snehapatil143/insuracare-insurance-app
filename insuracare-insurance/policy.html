@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Suggestions</title>
+    <style>
+        /* Basic Reset */
+        body, h2, label, button, select, input {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Page Background and Text */
+        body {
+            background-color: #E0F7FA; /* Very Light Blue Background */
+            color: #000; /* Black font color for all text */
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Main container (smaller size) */
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05); /* Slight zoom-in effect */
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+        }
+
+        /* Headline */
+        h2 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 20px;
+            font-size: 24px; /* Slightly reduced font size */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        h2:hover {
+            color: #005f82;
+        }
+
+        /* Labels */
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+            color: #000;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        label:hover {
+            color: #0077b6;
+            cursor: pointer;
+        }
+
+        /* Input and Select */
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f9fafb;
+            font-size: 16px;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #0077b6;
+            background-color: #eaf2f8;
+            outline: none;
+        }
+
+        input::placeholder, select:focus::placeholder {
+            color: #0077b6;
+            font-style: italic;
+        }
+
+        /* Buttons */
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            display: inline-block;
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #005f82;
+            transform: translateY(-4px); /* Slight lift on hover */
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        button:active {
+            background-color: #004f6d;
+            transform: translateY(2px); /* Button press effect */
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back to Home Button */
+        .back-btn {
+            background-color: #28a745; /* Green color for "Back to Home" button */
+            color: white;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between home icon and text */
+        }
+
+        .back-btn:hover {
+            background-color: #218838; /* Darker green on hover */
+            cursor: pointer;
+            transform: translateY(-4px); /* Slight lift on hover */
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-btn:active {
+            background-color: #1e7e34; /* Even darker green when pressed */
+            transform: translateY(2px); /* Press effect */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-btn i {
+            font-size: 18px; /* Home icon size */
+        }
+
+        /* Result Section */
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Success Message */
+        #result.success {
+            color: #28a745;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        /* Error Message */
+        #result.error {
+            color: #dc3545;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        /* Sliding animation for result */
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Hover effect for result links */
+        .result-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 14px 28px;
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .result-link:hover {
+            background-color: #005f82;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-link:active {
+            background-color: #004f6d;
+            transform: translateY(2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0077b6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Smooth Input Transitions */
+        input, select {
+            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            box-shadow: 0 0 8px rgba(0, 119, 182, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Find the Best Insurance Policy for You</h2>
+
+        <label for="age">Enter Your Age:</label>
+        <input type="number" id="age" placeholder="Enter age" required>
+
+        <label for="health">Select Health Condition:</label>
+        <select id="health">
+            <option value="healthy">Healthy</option>
+            <option value="pre-existing">Pre-existing Condition</option>
+            <option value="senior">Senior Citizen</option>
+        </select>
+
+        <label for="budget">Choose Budget (Monthly in):</label>
+        <input type="number" id="budget" placeholder="Enter budget" required>
+
+        <button onclick="suggestPolicy()">Get Policy Suggestions</button>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner"></div>
+
+        <div id="result"></div>
+
+        <button class="back-btn" onclick="goBack()">
+            <i class="fas fa-home"></i> Back to Home
+        </button>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        // Auto-select health condition based on age input
+        document.getElementById("age").addEventListener("input", function () {
+            const age = parseInt(this.value.trim());
+            const healthSelect = document.getElementById("health");
+
+            if (isNaN(age)) return;
+
+            if (age >= 60) {
+                healthSelect.value = "senior";
+            } else if (age >= 40) {
+                healthSelect.value = "pre-existing";
+            } else {
+                healthSelect.value = "healthy";
+            }
+        });
+
+        function suggestPolicy() {
+            let age = document.getElementById("age").value.trim();
+            let budget = document.getElementById("budget").value.trim();
+            let health = document.getElementById("health").value;
+            let result = document.getElementById("result");
+            let loadingSpinner = document.getElementById("loadingSpinner");
+
+            // Show loading spinner
+            loadingSpinner.style.display = "block";
+
+            setTimeout(function () {
+                if (age === "" || budget === "") {
+                    result.innerHTML = "❌ Please enter all details!";
+                    result.className = "error";
+                    loadingSpinner.style.display = "none";
+                    return;
+                }
+
+                age = parseInt(age);
+                budget = parseInt(budget);
+
+                if (isNaN(age) || isNaN(budget)) {
+                    result.innerHTML = "❌ Please enter valid numeric values!";
+                    result.className = "error";
+                    loadingSpinner.style.display = "none";
+                    return;
+                }
+
+                if (age < 18) {
+                    result.innerHTML = "❌ You must be at least 18 to get a policy!";
+                    result.className = "error";
+                    loadingSpinner.style.display = "none";
+                    return;
+                }
+
+                let suggestion = "";
+                let links = "";
+
+                if (health === "healthy") {
+                    suggestion = budget < 50
+                        ? "✅ Basic Health Policy (Affordable & Covers Essentials)"
+                        : "✅ Premium Health Plan (Covers Everything with Extra Benefits)";
+                    links = `
+                        <a href="https://www.healthcare.gov/" class="result-link">Healthcare.gov Health Plans</a>
+                        <a href="https://www.bluecrossnc.com" class="result-link">Blue Cross NC Health Plans</a>
+                        <a href="https://www.humana.com" class="result-link">Humana Health Plans</a>
+                    `;
+                } else if (health === "pre-existing") {
+                    suggestion = budget < 100
+                        ? "✅ Pre-Existing Condition Plan (Covers Basic Treatments)"
+                        : "✅ Comprehensive Pre-Existing Plan (Covers All Treatments)";
+                    links = `
+                        <a href="https://www.cigna.com" class="result-link">Cigna Health Plans</a>
+                        <a href="https://www.aetna.com" class="result-link">Aetna Health Plans</a>
+                        <a href="https://www.pacificare.com" class="result-link">PacifiCare Health Plans</a>
+                    `;
+                } else if (health === "senior") {
+                    suggestion = budget < 150
+                        ? "✅ Senior Citizen Essential Plan"
+                        : "✅ Senior Citizen Premium Plan (Covers More Treatments)";
+                    links = `
+                        <a href="https://www.medicare.gov" class="result-link">Medicare Plans</a>
+                        <a href="https://www.unitedhealthcare.com" class="result-link">United Healthcare Senior Plans</a>
+                        <a href="https://www.cvs.com" class="result-link">CVS Senior Health Plans</a>
+                    `;
+                }
+
+                result.innerHTML = suggestion + links;
+                result.className = "success";
+                loadingSpinner.style.display = "none";
+            }, 1500);
+        }
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

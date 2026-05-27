@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Very light blue background */
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff; /* Light blue header */
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: green;
+        }
+
+        .back-container {
+            margin-top: 30px;
+        }
+
+        .back-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h2>Insurance Premium Calculator</h2>
+        
+        <label for="age">Enter Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+
+        <label for="coverage">Coverage Amount ($):</label>
+        <input type="number" id="coverage" placeholder="Enter coverage amount">
+
+        <button onclick="calculatePremium()">Calculate Premium</button>
+
+        <h3 id="result"></h3>
+
+        <!-- Back Button at Bottom -->
+        <div class="back-container">
+            <button class="back-button" onclick="goBack()">⬅ Back to Home</button>
+        </div>
+
+    </div>
+
+    <script src="calculator.js"></script>
+    <script>
+        function goBack() {
+            window.location.href = "index.html"; // Change to your home page filename
+        }
+
+        function calculatePremium() {
+            const age = document.getElementById('age').value;
+            const coverage = document.getElementById('coverage').value;
+            const resultElement = document.getElementById('result');
+
+            // Input validation
+            if (!age || !coverage) {
+                resultElement.textContent = '❌ Please fill in both fields!';
+                resultElement.style.color = 'red';
+                return;
+            }
+
+            if (age <= 0 || coverage <= 0) {
+                resultElement.textContent = '❌ Please enter valid values!';
+                resultElement.style.color = 'red';
+                return;
+            }
+
+            // Basic premium calculation logic (just for demonstration)
+            const basePremium = 100;
+            const ageFactor = age < 25 ? 1.5 : 1.2;
+            const coverageFactor = coverage > 100000 ? 1.3 : 1.1;
+
+            const premium = basePremium * ageFactor * coverageFactor;
+
+            // Display result
+            resultElement.textContent = `💵 Your estimated premium is $${premium.toFixed(2)} per month.`;
+            resultElement.style.color = 'green';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="faq.css">
+    <style>
+        body {
+            background-color: #eaf6ff; /* Very light blue background */
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff; /* Light blue header */
+            margin-bottom: 20px;
+        }
+
+        .faq {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 15px;
+            background-color: #f0f8ff; /* Light blue background for question */
+            color: #007bff;
+            text-align: left;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #f0f8ff;
+            color: #333;
+            border-radius: 8px;
+            margin-top: 5px;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-answer.show {
+            display: block;
+            padding: 15px;
+        }
+
+        .back-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+            <button class="faq-question">❓ What does my insurance cover?</button>
+            <div class="faq-answer">Your insurance covers hospitalization, medical expenses, and other benefits depending on your policy type.</div>
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">❓ How can I file a claim?</button>
+            <div class="faq-answer">You can file a claim online through our portal or by contacting our support team. Provide necessary documents for verification.</div>
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">❓ How long does claim processing take?</button>
+            <div class="faq-answer">Claim processing typically takes 5-15 days depending on the type of claim.</div>
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">❓ Can I change my policy coverage?</button>
+            <div class="faq-answer">Yes, you can modify your policy coverage by contacting customer support or visiting our nearest branch.</div>
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">❓ How do I check my policy status?</button>
+            <div class="faq-answer">You can check your policy status by logging into your account on our website.</div>
+        </div>
+
+        <button class="back-btn" onclick="goBack()">⬅ Back to Home</button>
+    </div>
+
+    <script>
+        // Toggle FAQ answers on click
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling; // The associated answer div
+
+                // Toggle visibility
+                if (answer.classList.contains('show')) {
+                    answer.classList.remove('show');
+                } else {
+                    answer.classList.add('show');
+                }
+            });
+        });
+
+        // Function to go back to the homepage
+        function goBack() {
+            window.location.href = 'index.html'; // Redirect to the home page
+        }
+    </script>
+</body>
+</html>

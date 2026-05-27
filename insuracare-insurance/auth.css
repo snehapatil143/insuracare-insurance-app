@@ -1,0 +1,153 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background & Layout */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #c2e9fb);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Glassmorphism Card */
+.auth-container {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.auth-container:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Typography */
+h2 {
+    color: #004e89;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+p.subtitle {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #005f8a;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    /* Default border */
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
+    background: white;
+}
+
+/* Buttons */
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background: #0077b6;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
+}
+
+.auth-btn:hover {
+    background: #005b96;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 119, 182, 0.4);
+}
+
+/* Links */
+.links {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.links a {
+    color: #0077b6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: #004e89;
+}
+
+.separator {
+    margin: 0 5px;
+    color: #aaa;
+}
+
+/* Back Link */
+.back-link {
+    margin-top: 25px;
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #666;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #333;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

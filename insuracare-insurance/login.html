@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InsuraCare</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Enter your credentials to access your account</p>
+
+        <form action="dashboard.html"> <!-- Placeholder action -->
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="auth-btn">Sign In</button>
+        </form>
+
+        <div class="links">
+            <a href="forgot-password.html">Forgot Password?</a>
+            <span class="separator">|</span>
+            <a href="register.html">Create Account</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+</body>
+
+</html>

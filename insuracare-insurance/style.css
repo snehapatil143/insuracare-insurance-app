@@ -1,0 +1,81 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    background: #007bff;
+    padding: 15px 30px;
+    color: white;
+}
+
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero section */
+.hero {
+    background: #f4f4f4;
+    padding: 50px;
+}
+
+.hero h1 {
+    font-size: 30px;
+}
+
+.hero .btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Features section */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.feature-box {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}

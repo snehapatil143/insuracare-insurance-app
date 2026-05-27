@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Wellness Navigator</title>
+    <link rel="stylesheet" href="chatbot.css?v=2">
+    <!-- Using the same premium fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-info">
+                <div class="bot-avatar">
+                    <!-- Professional Icon -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Bot"
+                        style="width:100%; height:100%;">
+                </div>
+                <div>
+                    <h3>Insuracare Support</h3>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span> Available Now
+                    </div>
+                </div>
+            </div>
+            <button class="header-close-btn" onclick="showPopup()">✕</button>
+        </div>
+
+        <div id="chat-box" class="chat-box">
+            <!-- Chat messages will be injected here -->
+        </div>
+
+        <!-- Hidden input area if we want to expand later, for now just a placeholder to complete the look -->
+        <div class="input-area-placeholder">
+            <span>Select an option above to chat...</span>
+        </div>
+    </div>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmationModal" class="modal-overlay">
+        <div class="modal-box">
+            <h2>End Chat Session?</h2>
+            <p>You will be redirected to the home page.</p>
+            <div class="modal-buttons">
+                <button class="modal-button yes" onclick="confirmBack()">End Chat</button>
+                <button class="modal-button no" onclick="closePopup()">Stay Here</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+    <script>
+        function showPopup() {
+            document.getElementById("confirmationModal").style.display = "flex";
+        }
+        function closePopup() {
+            document.getElementById("confirmationModal").style.display = "none";
+        }
+        function confirmBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+
+</html>

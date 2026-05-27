@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - InsuraCare</title>
+    <!-- reusing about.css for the nice layout/fonts -->
+    <link rel="stylesheet" href="about.css">
+    <style>
+        .dashboard-container {
+            text-align: center;
+            padding: 50px;
+            max-width: 800px;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #ff4d4d;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">INSURACARE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <!-- Replaced Login with Logout/Profile in a real app, but for now keeping nav simple -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <h1>Welcome to Your Dashboard!</h1>
+        <p>You have successfully logged in.</p>
+        <p>Here you can manage your policies, view claims, and update your profile.</p>
+
+        <br>
+
+        <a href="index.html" class="logout-btn">Logout</a>
+    </div>
+
+</body>
+
+</html>

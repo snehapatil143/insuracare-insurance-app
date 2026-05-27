@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Claim Form - InsuraCare</title>
+    <link rel="stylesheet" href="claim.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">INSURACARE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html" style="color: #0077b6; font-weight: 600;">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="claim-container">
+        <div class="card">
+            <h2>File a Claim</h2>
+            <form id="claimForm" onsubmit="submitClaim(event)">
+                <div class="form-group">
+                    <label for="policyNumber">Policy Number</label>
+                    <input type="text" id="policyNumber" name="policyNumber" placeholder="e.g. POL-123456" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="claimType">Claim Type</label>
+                    <select id="claimType" name="claimType">
+                        <option value="medical">Medical Expense</option>
+                        <option value="accident">Accidental Damage</option>
+                        <option value="property">Property Damage</option>
+                        <option value="life">Life Insurance Claim</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="claimAmount">Claim Amount ($)</label>
+                    <input type="number" id="claimAmount" name="claimAmount" placeholder="0.00" required>
+                </div>
+
+                <button type="submit">Submit Claim</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>✅ Submitted!</h2>
+            <div id="modalMessage"></div>
+            <div id="processingTimeMessage" style="margin-top: 10px; color: #555;"></div>
+            <button class="ok-btn" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Wellness Navigator | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function submitClaim(event) {
+            event.preventDefault();
+            const policyNumber = document.getElementById("policyNumber").value.trim();
+            const claimAmount = parseFloat(document.getElementById("claimAmount").value.trim());
+
+            if (!policyNumber || isNaN(claimAmount) || claimAmount < 100) {
+                alert("❌ Please enter a valid Policy Number and Amount (min $100).");
+                return;
+            }
+
+            const claimType = document.getElementById("claimType").value;
+            let time = 0;
+
+            switch (claimType) {
+                case "medical": time = 5; break;
+                case "accident": time = 7; break;
+                case "property": time = 10; break;
+                case "life": time = 15; break;
+            }
+
+            // Show Modal
+            const modal = document.getElementById("successModal");
+            document.getElementById("modalMessage").innerHTML = "Your claim has been successfully registered.";
+            document.getElementById("processingTimeMessage").innerHTML = `Estimated processing time: <strong>${time} days</strong>.`;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("successModal").style.display = "none";
+            document.getElementById("claimForm").reset();
+        }
+    </script>
+</body>
+
+</html>

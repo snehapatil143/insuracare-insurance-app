@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - InsuraCare</title>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="header-logo">INSURACARE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html" style="color: #0077b6; font-weight: 600;">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="subtitle">We’d love to hear from you! Fill out the form below.</p>
+
+            <section class="contact-form">
+                <form id="contact-form">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Type your message..."
+                            required></textarea>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="submit" class="send-btn">Send Message</button>
+                        <!-- Button type button so it doesn't submit -->
+                        <button type="button" class="back-btn" onclick="window.location.href='index.html'">⬅ Back to
+                            Home</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Wellness Navigator | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("📩 Message Sent Successfully!");
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
