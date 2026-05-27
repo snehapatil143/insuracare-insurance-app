@@ -1,0 +1,1 @@
+Insuracare is a full-stack insurance support web application designed to streamline the experience of users seeking insurance services. It includes interactive modules like a chatbot, premium calculator, claim submission form, FAQs, and more. Built using HTML, CSS, JavaScript for the frontend, and PHP with MySQL for backend operations.
